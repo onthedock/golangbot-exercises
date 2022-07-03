@@ -1,15 +1,23 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+)
+
+func number() int {
+	num := 15 * 5 // num = 75
+	return num
+}
 
 func main() {
-	number := 75
-	switch { // the switch is considered 'true'
-	case number >= 0 && number < 50: // each condition in the case statement is evaluated
-		fmt.Printf("%d is greater or equal than 0, but less than 50\n", number)
-	case number >= 50 && number < 100:
-		fmt.Printf("%d is greater or equal than 50, but less than 100\n", number)
-	default:
-		fmt.Printf("%d is greater than 100\n", number)
+	switch num := number(); { //num is not a constant
+	case num < 50: // this evaluates to true
+		fmt.Printf("%d is lesser than 50\n", num)
+		fallthrough
+	case num < 100: // this results in 'true'
+		fmt.Printf("%d is lesser than 100\n", num) // print the message
+		fallthrough                                // continue evaluating 'case' statements
+	case num < 200: // it is not checked (because of the previous fallthrough)!!!
+		fmt.Printf("%d is lesser than 200\n", num) // print the message
 	}
 }
