@@ -1,13 +1,17 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+)
 
 func main() {
-	n := 10
-	for i := 0; i < n; i++ {
-		for j := 0; j < i; j++ {
-			fmt.Print("*")
+outer:
+	for i := 0; i < 3; i++ {
+		for j := 1; j < 4; j++ {
+			fmt.Printf("i = %d , j = %d\n", i, j)
+			if i == j {
+				break outer
+			}
 		}
-		fmt.Println()
 	}
 }
