@@ -11,6 +11,6 @@ func rectProps(length, width float64) (area, perimeter float64) {
 }
 
 func main() {
-	area, perimeter := rectProps(10.8, 5.6)
-	fmt.Printf("Area %f Perimeter %f\n", area, perimeter)
+	area, _ := rectProps(10.8, 5.6) // The returned value for `perimeter` is assigned to the blank identifier
+	fmt.Printf("Area %f\n", area)   // this allows to "ignore" returned values
 }
