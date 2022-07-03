@@ -1,13 +1,16 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+)
 
-func functionName(spanishGreeting, name string) string {
-	// function body
-	return spanishGreeting + " " + name
+func calculateBill(price, no int) int {
+	var totalPrice = price * no
+	return totalPrice
 }
 
 func main() {
-	greeting := functionName("Hola", "Xavi")
-	fmt.Println(greeting)
+	price, no := 90, 6
+	totalPrice := calculateBill(price, no)
+	fmt.Println("Total price is", totalPrice)
 }
