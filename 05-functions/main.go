@@ -2,9 +2,9 @@ package main
 
 import "fmt"
 
-func functionName(parameter1 string, parameter2 string) string {
+func functionName(spanishGreeting, name string) string {
 	// function body
-	return parameter1 + " " + parameter2
+	return spanishGreeting + " " + name
 }
 
 func main() {
