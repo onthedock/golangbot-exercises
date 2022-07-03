@@ -4,10 +4,10 @@ import (
 	"fmt"
 )
 
-func rectProps(length, width float64) (float64, float64) {
-	var area = length * width
-	var perimeter = (length + width) * 2
-	return area, perimeter
+func rectProps(length, width float64) (area, perimeter float64) {
+	area = length * width            // declaration in the function signature
+	perimeter = (length + width) * 2 // declaration in the function signature
+	return                           // no need to specify the name of the returned variables
 }
 
 func main() {
