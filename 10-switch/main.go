@@ -10,7 +10,7 @@ It can be considered as an idiomatic way of replacing complex "if...else" clause
 func main() {
 	fmt.Println(msg)
 
-	finger := 3
+	finger := 30
 	fmt.Printf("Finger %d is ... ", finger)
 
 	switch finger {
@@ -24,5 +24,7 @@ func main() {
 		fmt.Println("Ring")
 	case 5:
 		fmt.Println("Pinky")
+	default:
+		fmt.Println("Invalid finger number")
 	}
 }
