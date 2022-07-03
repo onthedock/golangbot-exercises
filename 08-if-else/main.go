@@ -3,10 +3,10 @@ package main
 import "fmt"
 
 func main() {
-	number := 10
+	number := 11
 	if number%2 == 0 {
 		fmt.Println("Number", number, "is even")
-		return
+	} else {
+		fmt.Println("Number", number, "is odd")
 	}
-	fmt.Println("Number", number, "is odd")
 }
