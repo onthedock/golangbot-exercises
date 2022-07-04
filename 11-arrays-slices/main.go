@@ -1,7 +1,16 @@
 package main
 
+import "fmt"
+
 func main() {
-	a := [3]int{12, 78, 50}
-	var b [5]int
-	b = a // Error: The size of the array is a part of the type; therefore, they are different types and 'a' cannot be assigned to 'b'
+	// Arrays in Go are value types and not reference types.
+	// This means that when they are assigned to a new variable,
+	// a copy of the original array is assigned to the new variable.
+	// If changes are made to the new variable, it will not be
+	// reflected in the original array.
+	a := [...]string{"USA", "China", "India", "Germany", "France"}
+	b := a // a copy of a is assigned to b
+	b[0] = "Singapore"
+	fmt.Println("a is ", a)
+	fmt.Println("b is ", b)
 }
