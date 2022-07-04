@@ -5,11 +5,12 @@ import (
 )
 
 func main() {
-	darr := [...]int{57, 89, 78, 67, 69, 59} // declares an array
-	dslice := darr[2:5]                      // creates a slice (from the previous array)
-	fmt.Println("array before", darr)
-	for i := range dslice {
-		dslice[i]++ // modifies the values in the slice. As the slice is just a reference, the underlying array its updated.
-	}
-	fmt.Println("array after", darr)
+	numa := [3]int{78, 79, 80}
+	nums1 := numa[:] //creates a slice which contains all elements of the array
+	nums2 := numa[:]
+	fmt.Println("array before change 1", numa)
+	nums1[0] = 100
+	fmt.Println("array after modification to slice nums1", numa)
+	nums2[1] = 101
+	fmt.Println("array after modification to slice nums2", numa)
 }
