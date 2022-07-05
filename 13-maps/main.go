@@ -7,7 +7,7 @@ func main() {
 		"John": 33,
 		"Jane": 32,
 	}
-	employee := "John"
+	employee := "Xavi"
 	age := employeeAge[employee]
 	fmt.Printf("%s is %d years old\n", employee, age)
 }
