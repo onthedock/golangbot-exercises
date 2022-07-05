@@ -1,20 +1,18 @@
 package main
 
-import "fmt"
-
-type employee struct {
-	country string
-	age     int
-}
+import (
+	"fmt"
+)
 
 func main() {
-	e1 := employee{"USA", 21}
-	e2 := employee{"Maxico", 19}
-	e3 := employee{"France", 22}
-	employeeInfo := map[string]employee{
-		"Mick":     e1,
-		"Miguel":   e2,
-		"Delphine": e3,
+	employeeSalary := map[string]int{
+		"steve": 12000,
+		"jamie": 15000,
+		"mike":  9000,
 	}
-	fmt.Println(len(employeeInfo))
+	fmt.Println("Original employee salary", employeeSalary)
+	modified := employeeSalary
+	modified["mike"] = 18000
+	fmt.Println("Employee salary changed", employeeSalary)
+
 }
