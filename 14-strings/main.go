@@ -2,27 +2,22 @@ package main
 
 import (
 	"fmt"
-	"unicode/utf8"
 )
 
-func main() {
-	word1 := "Señor"
-	fmt.Printf("String: %s\n", word1)
-	fmt.Printf("Length: %d\n", utf8.RuneCountInString(word1))
-	fmt.Printf("Number of bytes: %d\n", len(word1))
-
-	fmt.Printf("\n")
-	word2 := "Pets"
-	fmt.Printf("String: %s\n", word2)
-	fmt.Printf("Length: %d\n", utf8.RuneCountInString(word2))
-	fmt.Printf("Number of bytes: %d\n", len(word2))
+func compareStrings(str1 string, str2 string) {
+	if str1 == str2 {
+		fmt.Printf("%s and %s are equal\n", str1, str2)
+		return
+	}
+	fmt.Printf("%s and %s are not equal\n", str1, str2)
 }
 
-// Output:
-// String: Señor
-// Length: 5
-// Number of bytes: 6
+func main() {
+	string1 := "Go"
+	string2 := "Fail"
+	compareStrings(string1, string2)
 
-// String: Pets
-// Length: 4
-// Number of bytes: 4
+	string3 := "Señor"
+	string4 := "Señor"
+	compareStrings(string3, string4)
+}
