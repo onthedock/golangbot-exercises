@@ -16,8 +16,5 @@ func main() {
 		"Miguel":   e2,
 		"Delphine": e3,
 	}
-
-	for name, info := range employeeInfo {
-		fmt.Printf("Employee: '%s' is '%d' years old from '%s'\n", name, info.age, info.country)
-	}
+	fmt.Println(len(employeeInfo))
 }
