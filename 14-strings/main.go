@@ -13,8 +13,9 @@ func printBytes(s string) {
 
 func printChars(s string) {
 	fmt.Printf("Characters: ")
-	for i := 0; i < len(s); i++ {
-		fmt.Printf("%c ", s[i])
+	runes := []rune(s)
+	for i := 0; i < len(runes); i++ {
+		fmt.Printf("%c ", runes[i])
 	}
 }
 
@@ -30,12 +31,12 @@ func main() {
 	printChars(name)
 	fmt.Printf("\n")
 	printBytes(name)
-	// Output
+	// Output:
 	// String: Hello World
 	// Characters: H e l l o   W o r l d
 	// Bytes: 48 65 6c 6c 6f 20 57 6f 72 6c 64
 
 	// String: Señor
-	// Characters: S e Ã ± o r <-- FAIL!!!
-	// // Bytes: 53 65 c3 b1 6f 72
+	// Characters: S e ñ o r <-- WORKS OK!!!
+	// Bytes: 53 65 c3 b1 6f 72
 }
