@@ -1,12 +1,6 @@
 package main
 
-import "fmt"
-
 func main() {
-	employeeAge := map[string]int{
-		"John": 33,
-		"Jane": 32,
-	}
-	employeeAge["Ann"] = 21
-	fmt.Println(employeeAge) // prints -> map[Ann:21 Jane:32 John:33]
+	var employeeSalary map[string]int //  The zero value of a map is 'nil'
+	employeeSalary["steve"] = 12000   // Error: Assignment to a 'nil' map
 }
