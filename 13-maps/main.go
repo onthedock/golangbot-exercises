@@ -1,18 +1,13 @@
 package main
 
-import (
-	"fmt"
-)
-
 func main() {
-	employeeSalary := map[string]int{
-		"steve": 12000,
-		"jamie": 15000,
-		"mike":  9000,
+	map1 := map[string]int{
+		"one": 1,
+		"two": 2,
 	}
-	fmt.Println("Original employee salary", employeeSalary)
-	modified := employeeSalary
-	modified["mike"] = 18000
-	fmt.Println("Employee salary changed", employeeSalary)
 
+	map2 := map1
+
+	if map1 == map2 { // ERROR: maps can't be compared (unless they're compared to 'nil')
+	}
 }
