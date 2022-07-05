@@ -4,14 +4,12 @@ import "fmt"
 
 func main() {
 	employeeAge := map[string]int{
-		"John": 33,
-		"Jane": 32,
+		"John":    33,
+		"Jane":    32,
+		"Marc":    45,
+		"Anthony": 55,
 	}
-	employee := "Xavi"
-	age, ok := employeeAge[employee] // returns the value and ok=true if the 'key' exists in the map
-	if !ok {
-		fmt.Printf("The age of employee %s is not defined in the map\n", employee)
-		return
+	for k, v := range employeeAge {
+		fmt.Printf("The employee '%s' is '%d' years old\n", k, v)
 	}
-	fmt.Printf("%s is %d years old\n", employee, age)
 }
