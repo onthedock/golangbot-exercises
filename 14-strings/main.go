@@ -2,13 +2,27 @@ package main
 
 import (
 	"fmt"
+	"unicode/utf8"
 )
 
 func main() {
-	byteSlice := []byte{0x43, 0x61, 0x66, 0xC3, 0xA9}
-	str := string(byteSlice)
-	fmt.Println(str)
+	word1 := "Señor"
+	fmt.Printf("String: %s\n", word1)
+	fmt.Printf("Length: %d\n", utf8.RuneCountInString(word1))
+	fmt.Printf("Number of bytes: %d\n", len(word1))
+
+	fmt.Printf("\n")
+	word2 := "Pets"
+	fmt.Printf("String: %s\n", word2)
+	fmt.Printf("Length: %d\n", utf8.RuneCountInString(word2))
+	fmt.Printf("Number of bytes: %d\n", len(word2))
 }
 
 // Output:
-// Café
+// String: Señor
+// Length: 5
+// Number of bytes: 6
+
+// String: Pets
+// Length: 4
+// Number of bytes: 4
