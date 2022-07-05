@@ -1,8 +1,18 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+)
+
+func printBytes(s string) {
+	fmt.Printf("Bytes: ")
+	for i := 0; i < len(s); i++ {
+		fmt.Printf("%x ", s[i]) // %x is the format specifier for hexadecimal
+	}
+}
 
 func main() {
-	var s string = "A string is a slice of bytes in Go. Strings can be created by enclosing a set of characters inside double quotes \" \"."
-	fmt.Println(s)
+	name := "Hello World"
+	fmt.Printf("String: %s\n", name) // %s is the format specifier to print a string
+	printBytes(name)                 // Prints --> Bytes: 48 65 6c 6c 6f 20 57 6f 72 6c 64
 }
