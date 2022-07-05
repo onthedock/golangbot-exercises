@@ -4,39 +4,20 @@ import (
 	"fmt"
 )
 
-func printBytes(s string) {
-	fmt.Printf("Bytes: ")
-	for i := 0; i < len(s); i++ {
-		fmt.Printf("%x ", s[i])
-	}
-}
-
-func printChars(s string) {
-	fmt.Printf("Characters: ")
-	runes := []rune(s)
-	for i := 0; i < len(runes); i++ {
-		fmt.Printf("%c ", runes[i])
+func charsAndBytePosition(s string) {
+	for index, rune := range s { // returns the position of the byte where the rune starts along with the rune
+		fmt.Printf("%c starts at byte %d\n", rune, index)
 	}
 }
 
 func main() {
-	name := "Hello World"
-	fmt.Printf("String: %s\n", name)
-	printChars(name)
-	fmt.Printf("\n")
-	printBytes(name)
-	fmt.Printf("\n\n")
-	name = "Señor"
-	fmt.Printf("String: %s\n", name)
-	printChars(name)
-	fmt.Printf("\n")
-	printBytes(name)
-	// Output:
-	// String: Hello World
-	// Characters: H e l l o   W o r l d
-	// Bytes: 48 65 6c 6c 6f 20 57 6f 72 6c 64
-
-	// String: Señor
-	// Characters: S e ñ o r <-- WORKS OK!!!
-	// Bytes: 53 65 c3 b1 6f 72
+	name := "Señor"
+	charsAndBytePosition(name)
 }
+
+// Output:
+// S starts at byte 0 <-- 1 byte
+// e starts at byte 1 <-- 1 byte
+// ñ starts at byte 2 <-- 2 bytes (2 and 3) are used by 'ñ'
+// o starts at byte 4 ...
+// r starts at byte 5
