@@ -11,10 +11,10 @@ func printBytes(s string) {
 	}
 }
 
-func printChars(s string) { // This function contains a BUG!!!!!
+func printChars(s string) {
 	fmt.Printf("Characters: ")
 	for i := 0; i < len(s); i++ {
-		fmt.Printf("%c ", s[i]) // %c format specifier is used to print the characters of the string
+		fmt.Printf("%c ", s[i])
 	}
 }
 
@@ -24,8 +24,18 @@ func main() {
 	printChars(name)
 	fmt.Printf("\n")
 	printBytes(name)
-	// Output:
+	fmt.Printf("\n\n")
+	name = "Señor"
+	fmt.Printf("String: %s\n", name)
+	printChars(name)
+	fmt.Printf("\n")
+	printBytes(name)
+	// Output
 	// String: Hello World
 	// Characters: H e l l o   W o r l d
 	// Bytes: 48 65 6c 6c 6f 20 57 6f 72 6c 64
+
+	// String: Señor
+	// Characters: S e Ã ± o r <-- FAIL!!!
+	// // Bytes: 53 65 c3 b1 6f 72
 }
