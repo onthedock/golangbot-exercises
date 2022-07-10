@@ -2,11 +2,14 @@ package main
 
 import "fmt"
 
+func changeVal(val *int) {
+	*val = 55
+}
+
 func main() {
-	b := 255
-	a := &b
-	fmt.Println("address of b", a)
-	fmt.Println("value of b is", *a)
-	*a++
-	fmt.Println("new value of b is", b)
+	a := 58
+	fmt.Println("value of 'a' before function call", a)
+	b := &a
+	changeVal(b)
+	fmt.Println("Value of 'a' after function call", a)
 }
