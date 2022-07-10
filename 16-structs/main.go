@@ -1,7 +1,6 @@
 package main
 
 type Employee struct {
-	firstName string
-	lastName  string
-	age       int
+	firstName, lastName string
+	age                 int
 }
