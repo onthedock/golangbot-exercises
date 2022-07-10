@@ -2,13 +2,12 @@ package main
 
 import "fmt"
 
-func changeVal(val *int) {
-	*val = 55
+func hello() *int {
+	i := 5
+	return &i
 }
 
 func main() {
-	a := 58
-	fmt.Println("value of 'a' before function call", a)
-	changeVal(&a)
-	fmt.Println("Value of 'a' after function call", a)
+	d := hello()
+	fmt.Println("value of 'd' is", *d)
 }
