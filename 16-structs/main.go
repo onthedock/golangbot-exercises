@@ -9,10 +9,11 @@ type Employee struct {
 }
 
 func main() {
-	var emp1 Employee
-	emp1.firstName = "John"
-	emp1.lastName = "Doe"
-	fmt.Println("First name", emp1.firstName)
-	fmt.Println("Last name", emp1.lastName)
-	fmt.Println("Age", emp1.age)
+	emp1 := &Employee{
+		firstName: "Samuel",
+		lastName:  " Beckett",
+		age:       25,
+	}
+	fmt.Println("First name:", (*emp1).firstName)
+	fmt.Println("Age:", (*emp1).age)
 }
