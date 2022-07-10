@@ -2,18 +2,29 @@ package main
 
 import "fmt"
 
-type Employee struct {
-	firstName string
-	lastName  string
-	age       int
+type Address struct {
+	city  string
+	state string
+}
+
+type Person struct {
+	name    string
+	age     int
+	address Address
 }
 
 func main() {
-	emp1 := &Employee{
-		firstName: "Samuel",
-		lastName:  " Beckett",
-		age:       25,
+	p := Person{
+		name: "Frank",
+		age:  67,
+		address: Address{
+			city:  "Chicago",
+			state: "Ilinois",
+		},
 	}
-	fmt.Println("First name:", (*emp1).firstName)
-	fmt.Println("Age:", (*emp1).age)
+
+	fmt.Println("Name:", p.name)
+	fmt.Println("Age", p.age)
+	fmt.Println("City:", p.address.city)
+	fmt.Println("State:", p.address.state)
 }
