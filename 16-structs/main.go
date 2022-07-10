@@ -1,30 +1,31 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+)
 
 type Address struct {
 	city  string
 	state string
 }
-
 type Person struct {
-	name    string
-	age     int
-	address Address
+	name string
+	age  int
+	Address
 }
 
 func main() {
 	p := Person{
-		name: "Frank",
-		age:  67,
-		address: Address{
+		name: "Naveen",
+		age:  50,
+		Address: Address{
 			city:  "Chicago",
-			state: "Ilinois",
+			state: "Illinois",
 		},
 	}
 
 	fmt.Println("Name:", p.name)
-	fmt.Println("Age", p.age)
-	fmt.Println("City:", p.address.city)
-	fmt.Println("State:", p.address.state)
+	fmt.Println("Age:", p.age)
+	fmt.Println("City:", p.city)   //city is promoted field
+	fmt.Println("State:", p.state) //state is promoted field
 }
