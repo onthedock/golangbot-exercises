@@ -3,8 +3,8 @@ package main
 import "fmt"
 
 func main() {
-	size := new(int)
-	fmt.Printf("Size value is %d, type is %T and address is %v\n", *size, size, size)
-	*size = 85
-	fmt.Println("New 'size' value is", *size)
+	b := 255
+	a := &b
+	fmt.Println("address of b", a)
+	fmt.Println("value of b is", *a)
 }
