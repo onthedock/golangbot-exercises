@@ -7,4 +7,6 @@ func main() {
 	a := &b
 	fmt.Println("address of b", a)
 	fmt.Println("value of b is", *a)
+	*a++
+	fmt.Println("new value of b is", b)
 }
