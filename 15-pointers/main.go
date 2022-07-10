@@ -1,13 +1,15 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+)
 
-func hello() *int {
-	i := 5
-	return &i
+func modify(sls []int) {
+	sls[0] = 90
 }
 
 func main() {
-	d := hello()
-	fmt.Println("value of 'd' is", *d)
+	a := [3]int{89, 90, 91}
+	modify(a[:])
+	fmt.Println(a)
 }
