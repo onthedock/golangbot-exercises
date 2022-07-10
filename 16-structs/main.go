@@ -9,14 +9,14 @@ type Employee struct {
 }
 
 func main() {
-	// creates a struct specifying field names
 	emp1 := Employee{
 		firstName: "Sam",
 		age:       25,
 		lastName:  "Anderson",
 	}
-	// creates a struct without specifying field names
-	emp2 := Employee{"Federico", "Mercurio", 33}
-	fmt.Println("Employee 1", emp1)
-	fmt.Println("Employee 2", emp2)
+	fmt.Println("First name", emp1.firstName)
+	fmt.Println("Last name", emp1.lastName)
+	fmt.Println("Age", emp1.age)
+	emp1.firstName = "Samuel"
+	fmt.Println("New name", emp1.firstName)
 }
