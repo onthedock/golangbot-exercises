@@ -9,7 +9,6 @@ func changeVal(val *int) {
 func main() {
 	a := 58
 	fmt.Println("value of 'a' before function call", a)
-	b := &a
-	changeVal(b)
+	changeVal(&a)
 	fmt.Println("Value of 'a' after function call", a)
 }
