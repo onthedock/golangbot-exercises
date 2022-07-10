@@ -9,11 +9,7 @@ type Employee struct {
 }
 
 func main() {
-	emp1 := Employee{
-		firstName: "Sam",
-		age:       25,
-		lastName:  "Anderson",
-	}
+	var emp1 Employee // Not initialized -> zero values
 	fmt.Println("First name", emp1.firstName)
 	fmt.Println("Last name", emp1.lastName)
 	fmt.Println("Age", emp1.age)
