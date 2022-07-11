@@ -4,28 +4,37 @@ import (
 	"fmt"
 )
 
-type Address struct {
-	city  string
-	state string
-}
-type Person struct {
-	name string
-	age  int
-	Address
+type name struct {
+	firstName string
+	lastName  string
 }
 
 func main() {
-	p := Person{
-		name: "Naveen",
-		age:  50,
-		Address: Address{
-			city:  "Chicago",
-			state: "Illinois",
-		},
+	name1 := name{
+		firstName: "Steve",
+		lastName:  "Jobs",
+	}
+	name2 := name{
+		firstName: "Steve",
+		lastName:  "Jobs",
+	}
+	if name1 == name2 {
+		fmt.Println("name1 and name2 are equal")
+	} else {
+		fmt.Println("name1 and name2 are not equal")
 	}
 
-	fmt.Println("Name:", p.name)
-	fmt.Println("Age:", p.age)
-	fmt.Println("City:", p.city)   //city is promoted field
-	fmt.Println("State:", p.state) //state is promoted field
+	name3 := name{
+		firstName: "Steve",
+		lastName:  "Jobs",
+	}
+	name4 := name{
+		firstName: "Steve",
+	}
+
+	if name3 == name4 {
+		fmt.Println("name3 and name4 are equal")
+	} else {
+		fmt.Println("name3 and name4 are not equal")
+	}
 }
