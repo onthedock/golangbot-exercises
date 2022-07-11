@@ -35,6 +35,6 @@ func main() {
 
 	fmt.Println("\nPointer Receivers:")
 	fmt.Printf("Employee age before change: %d\n", e.age)
-	(&e).changeAge(51)
+	e.changeAge(51)
 	fmt.Printf("Employee age after change: %d\n", e.age)
 }
