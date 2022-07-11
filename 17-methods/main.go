@@ -12,7 +12,7 @@ type Employee struct {
 	currency string
 }
 
-func (e Employee) displaySalary() {
+func displaySalary(e Employee) {
 	fmt.Printf("Salary of %s is %s%d\n", e.name, e.currency, e.salary)
 }
 
@@ -22,5 +22,5 @@ func main() {
 		salary:   5000,
 		currency: "$",
 	}
-	emp1.displaySalary() // Call displayMethod()
+	displaySalary(emp1) // Call displayMethod()
 }
