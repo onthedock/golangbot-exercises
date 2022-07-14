@@ -4,37 +4,35 @@ import (
 	"fmt"
 )
 
-type Employee struct {
-	name string
-	age  int
+type rectangle struct {
+	length int
+	width  int
 }
 
-/*
-Method with value receiver
-*/
-func (e Employee) changeName(newName string) {
-	e.name = newName
+func area(r rectangle) {
+	fmt.Printf("Area Function result: %d\n", (r.length * r.width))
 }
 
-/*
-Method with pointer receiver
-*/
-func (e *Employee) changeAge(newAge int) {
-	e.age = newAge
+func (r rectangle) area() {
+	fmt.Printf("Area Method result: %d\n", (r.length * r.width))
 }
 
 func main() {
-	e := Employee{
-		name: "Mark Andrew",
-		age:  50,
+	r := rectangle{
+		length: 10,
+		width:  5,
 	}
-	fmt.Println("Value receiver:")
-	fmt.Printf("Employee name before change: %s\n", e.name)
-	e.changeName("Michael Andrew")
-	fmt.Printf("Employee name after change: %s\n", e.name)
+	area(r)
+	r.area()
 
-	fmt.Println("\nPointer Receivers:")
-	fmt.Printf("Employee age before change: %d\n", e.age)
-	e.changeAge(51)
-	fmt.Printf("Employee age after change: %d\n", e.age)
+	p := &r
+	/*
+	   compilation error, cannot use p (type *rectangle) as type rectangle
+	   in argument to area
+	*/
+	// area(p)
+
+	p.area() //calling value receiver with a pointer
+	// this is equivalent to
+	// (*p).area()
 }
