@@ -16,6 +16,12 @@ type Contract struct {
 	basicPay int
 }
 
+type Freelancer struct {
+	empId       int
+	ratePerHour int
+	totalHours  int
+}
+
 // Salary of a permanent employee is the sum of the
 // basic pay and and pf
 func (p Permanent) CalculateSalary() int {
@@ -25,6 +31,10 @@ func (p Permanent) CalculateSalary() int {
 // Salary of contract employee is the basic pay alone
 func (c Contract) CalculateSalary() int {
 	return c.basicPay
+}
+
+func (f Freelancer) CalculateSalary() int {
+	return f.ratePerHour * f.totalHours
 }
 
 /*
@@ -55,6 +65,16 @@ func main() {
 		empId:    3,
 		basicPay: 3000,
 	}
-	employees := []SalaryCalculator{pemp1, pemp2, cemp1}
+	femp1 := Freelancer{
+		empId:       4,
+		ratePerHour: 70,
+		totalHours:  120,
+	}
+	femp2 := Freelancer{
+		empId:       5,
+		ratePerHour: 100,
+		totalHours:  100,
+	}
+	employees := []SalaryCalculator{pemp1, pemp2, cemp1, femp1, femp2}
 	totalExpense(employees)
 }
