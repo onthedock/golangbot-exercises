@@ -1,11 +1,16 @@
 package main
 
-func (a int) add(b int) {
+import "fmt"
+
+type customInt int
+
+func (a customInt) add(b customInt) customInt {
+	return a + b
 }
 
 func main() {
-
+	num1 := customInt(5)
+	num2 := customInt(20)
+	sum := num1.add(num2)
+	fmt.Println("Sum is", sum)
 }
-
-// go run main.go results in:
-// ./main.go:3:7: cannot define new methods on non-local type int
