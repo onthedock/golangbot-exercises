@@ -1,38 +1,11 @@
 package main
 
-import (
-	"fmt"
-)
-
-type rectangle struct {
-	length int
-	width  int
-}
-
-func area(r rectangle) {
-	fmt.Printf("Area Function result: %d\n", (r.length * r.width))
-}
-
-func (r rectangle) area() {
-	fmt.Printf("Area Method result: %d\n", (r.length * r.width))
+func (a int) add(b int) {
 }
 
 func main() {
-	r := rectangle{
-		length: 10,
-		width:  5,
-	}
-	area(r)
-	r.area()
 
-	p := &r
-	/*
-	   compilation error, cannot use p (type *rectangle) as type rectangle
-	   in argument to area
-	*/
-	// area(p)
-
-	p.area() //calling value receiver with a pointer
-	// this is equivalent to
-	// (*p).area()
 }
+
+// go run main.go results in:
+// ./main.go:3:7: cannot define new methods on non-local type int
