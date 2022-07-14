@@ -1,32 +1,60 @@
-// an interface is a set of method signatures. When a type provides definition for all the methods in the interface, it is said to implement the interface.
-// WashingMachine can be an interface with method signatures Cleaning() and Drying(). Any type which provides definition for Cleaning() and Drying() methods is said to implement the WashingMachine interface
-
 package main
 
-import (
-	"fmt"
-	"unicode"
-)
+import "fmt"
 
-type VowelsFinder interface {
-	FindVowels() []rune
+type SalaryCalculator interface {
+	CalculateSalary() int
 }
-type myString string
 
-// MyString implements VowelsFinder
-func (ms myString) FindVowels() []rune {
-	var vowels []rune
-	for _, rune := range ms {
-		rune = unicode.ToLower(rune)
-		switch rune {
-		case 'a', 'e', 'i', 'o', 'u':
-			vowels = append(vowels, rune)
-		}
+type Permanent struct {
+	empId    int
+	basicPay int
+	pf       int
+}
+type Contract struct {
+	empId    int
+	basicPay int
+}
+
+// Salary of a permanent employee is the sum of the
+// basic pay and and pf
+func (p Permanent) CalculateSalary() int {
+	return p.basicPay + p.pf
+}
+
+// Salary of contract employee is the basic pay alone
+func (c Contract) CalculateSalary() int {
+	return c.basicPay
+}
+
+/*
+Total expense is calculated by iterating throught the
+SalaryCalculator slice and summing the salaries of
+the individual employees
+*/
+func totalExpense(s []SalaryCalculator) {
+	expense := 0
+	for _, v := range s {
+		expense = expense + v.CalculateSalary()
 	}
-	return vowels
+	fmt.Printf("Total expense per month $%d\n", expense)
 }
 
 func main() {
-	var name myString = myString("Antonio Machin")
-	fmt.Printf("Vowels are %c\n", name.FindVowels())
+	pemp1 := Permanent{
+		empId:    1,
+		basicPay: 5000,
+		pf:       20,
+	}
+	pemp2 := Permanent{
+		empId:    2,
+		basicPay: 6000,
+		pf:       30,
+	}
+	cemp1 := Contract{
+		empId:    3,
+		basicPay: 3000,
+	}
+	employees := []SalaryCalculator{pemp1, pemp2, cemp1}
+	totalExpense(employees)
 }
